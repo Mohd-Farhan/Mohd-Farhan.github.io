@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mohd. Farhan Siddiqui — Back-End & Systems Engineer</title>
+    <!-- Editorial Sans (Space Grotesk) & Technical Mono (JetBrains Mono) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <!-- Fixed Three.js WebGL Background -->
+    <canvas id="webgl-canvas" aria-hidden="true"></canvas>
+
+    <!-- Fixed Minimalist HUD / Navigation -->
+    <header class="hud-header">
+      <div class="logo">MFS // 01</div>
+      <nav class="hud-nav">
+        <a href="#intro" data-scroll="intro">00.Index</a>
+        <a href="#about" data-scroll="about">01.Architecture</a>
+        <a href="#experience" data-scroll="experience">02.Experience</a>
+        <a href="#project-tix" data-scroll="project-tix">03.TixManager</a>
+        <a href="#project-welisten" data-scroll="project-welisten">04.WeListen</a>
+        <a href="#contact" data-scroll="contact">05.Contact</a>
+      </nav>
+      <div class="status-indicator">
+        <span class="dot"></span> SYS.ONLINE // PUNE, IN
+      </div>
+    </header>
+
+    <div class="scroll-progress-bar">
+      <div class="scroll-progress-fill"></div>
+    </div>
+
+    <!-- Scroll Story Narrative Overlay -->
+    <main id="smooth-content">
+      
+      <!-- CHAPTER 00: INTRO -->
+      <section id="intro" class="story-section align-left">
+        <div class="section-inner">
+          <p class="mono-label">00 // SYSTEM INITIALIZATION</p>
+          <h1 class="hero-title">MOHD. FARHAN<br />SIDDIQUI</h1>
+          <p class="lead-copy">
+            Back-End Engineer architecting resilient distributed systems, automated daemon workflows, and high-throughput microservices.
+          </p>
+          <div class="meta-row">
+            <span class="mono-badge">JAVA / SPRING BOOT</span>
+            <span class="mono-badge">.NET / C#</span>
+            <span class="mono-badge">DISTRIBUTED SQL & NOSQL</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAPTER 01: ABOUT & ACHIEVEMENTS -->
+      <section id="about" class="story-section align-right">
+        <div class="section-inner">
+          <p class="mono-label">01 // CORE TELEMETRY & CREDENTIALS</p>
+          <h2 class="section-title">ALGORITHMIC<br />PRECISION</h2>
+          <p class="body-copy">
+            B.Tech in Computer Science & Engineering (Data Science & AI) from Shri Ramswaroop Memorial University (CGPA: 8.08). Grounded in Low-Level Design, multithreading, and GoF design patterns that scale cleanly under production load.
+          </p>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-value">500+</span>
+              <span class="stat-label">DSA Problems Solved (LeetCode / HackerRank)</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-value">1,609</span>
+              <span class="stat-label">LeetCode Contest Rating</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-value">AIR 5878</span>
+              <span class="stat-label">GATE 2024 All India Rank</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-value">8.08</span>
+              <span class="stat-label">B.Tech CGPA (2020 — 2024)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAPTER 02: EXPERIENCE -->
+      <section id="experience" class="story-section align-left">
+        <div class="section-inner">
+          <p class="mono-label">02 // PRODUCTION CHRONOLOGY</p>
+          <h2 class="section-title">ENTERPRISE<br />ENGINEERING</h2>
+
+          <div class="timeline-block">
+            <div class="timeline-header">
+              <h3>Tata Consultancy Services</h3>
+              <span class="mono-date">FEB 2025 — PRESENT // PUNE, INDIA</span>
+            </div>
+            <p class="mono-role">Back-End Engineer (Assistant System Engineer) · Java, Spring Boot, SQL</p>
+            <ul class="tech-list">
+              <li>Engineered configuration-driven generic modules across multi-tenant environments, cutting client onboarding and feature delivery time by <strong>~80%</strong>.</li>
+              <li>Orchestrated scheduled automated background jobs that eliminated repetitive operational bottlenecks and reduced manual administrative effort by <strong>~90%</strong>.</li>
+              <li>Formulated high-precision SQL queries for complex tenant data eligibility, validation, and zero-downtime production bug resolution.</li>
+            </ul>
+          </div>
+
+          <div class="timeline-block">
+            <div class="timeline-header">
+              <h3>Emeis Technologies Pvt. Ltd.</h3>
+              <span class="mono-date">JAN 2024 — JULY 2024 // REMOTE</span>
+            </div>
+            <p class="mono-role">Software Engineer Trainee · C#, .NET, SQL, Cassandra, Solr, Postman</p>
+            <ul class="tech-list">
+              <li>Architected a dedicated microservice handling end-to-end CRUD operations for the core <code>Channel</code> module with high-availability API performance.</li>
+              <li>Built an asynchronous background worker service to ingest, filter, and route live Shopify API payloads to downstream microservices for persistent storage.</li>
+              <li>Refactored legacy modules and executed platform-wide regression suites to guarantee deployment stability.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAPTER 03: PROJECT 1 (TIXMANAGER) -->
+      <section id="project-tix" class="story-section align-right">
+        <div class="section-inner">
+          <p class="mono-label">03 // FEATURED ARCHITECTURE 01</p>
+          <h2 class="section-title">TIXMANAGER<br />ENGINE</h2>
+          <p class="mono-role">Java · Spring Boot · Spring Security · Angular · PostgreSQL · Docker</p>
+          <p class="body-copy">
+            Full-lifecycle enterprise ticketing and SLA orchestration platform built with decoupled behavioral design patterns and stateless security.
+          </p>
+          <ul class="tech-list">
+            <li><strong>Stateless Security & RBAC:</strong> JWT authentication with Spring Security, refresh token rotation, and custom Angular functional HTTP interceptors.</li>
+            <li><strong>GoF Pattern Architecture:</strong> Decoupled complex ticket lifecycle transitions via the <em>State Pattern</em> and implemented dynamic agent assignment (round-robin & priority routing) using the <em>Strategy Pattern</em>.</li>
+            <li><strong>Event-Driven SLA Daemons:</strong> Asynchronous audit logging and Thymeleaf email alerts via the <em>Spring Observer Pattern</em>, backed by <code>@Scheduled</code> daemon workers for automated SLA breach escalation.</li>
+          </ul>
+          <div class="action-links">
+            <a href="https://github.com" target="_blank" rel="noopener" class="cyber-btn">VIEW SOURCE // GITHUB</a>
+            <a href="#" target="_blank" rel="noopener" class="cyber-btn outline">LIVE DEPLOYMENT</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAPTER 04: PROJECT 2 (WELISTEN) -->
+      <section id="project-welisten" class="story-section align-left">
+        <div class="section-inner">
+          <p class="mono-label">04 // FEATURED ARCHITECTURE 02</p>
+          <h2 class="section-title">WELISTEN<br />COMM PROTOCOL</h2>
+          <p class="mono-role">Java · XML · Firebase · Zegocloud API · Android Studio</p>
+          <p class="body-copy">
+            Low-latency real-time messaging and VoIP communication client engineered for multi-device synchronization.
+          </p>
+          <ul class="tech-list">
+            <li><strong>Real-Time State Sync:</strong> Integrated Firebase real-time synchronization for encrypted, low-latency messaging across concurrent active devices.</li>
+            <li><strong>VoIP Media Pipeline:</strong> Embedded high-definition internet voice calling via the Zegocloud API with responsive native XML UI layouts.</li>
+          </ul>
+          <div class="action-links">
+            <a href="https://github.com" target="_blank" rel="noopener" class="cyber-btn">VIEW SOURCE // GITHUB</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAPTER 05: TECH MATRIX & CONTACT -->
+      <section id="contact" class="story-section align-center">
+        <div class="section-inner">
+          <p class="mono-label">05 // TRANSMISSION & ARSENAL</p>
+          <h2 class="section-title">INITIATE<br />HANDSHAKE</h2>
+          
+          <div class="skills-matrix">
+            <div class="skill-group">
+              <span class="skill-cat">LANGUAGES</span>
+              <p>Java · SQL · Python · C#</p>
+            </div>
+            <div class="skill-group">
+              <span class="skill-cat">BACK-END & API</span>
+              <p>Spring Boot · Spring Security · JPA / Hibernate · .NET · MapStruct · REST · Swagger</p>
+            </div>
+            <div class="skill-group">
+              <span class="skill-cat">DATA STORES</span>
+              <p>PostgreSQL · MongoDB · Apache Cassandra · Apache Solr</p>
+            </div>
+            <div class="skill-group">
+              <span class="skill-cat">INFRA & CORE</span>
+              <p>Docker · Git · TortoiseSVN · Multithreading · Low-Level Design · GoF Patterns</p>
+            </div>
+          </div>
+
+          <div class="contact-box">
+            <a href="mailto:sample.email@domain.com" class="email-cta">sample.email@domain.com</a>
+            <p class="mono-phone">+91-9876543210 // PUNE, MAHARASHTRA, INDIA</p>
+            <div class="social-row">
+              <a href="https://linkedin.com" target="_blank" rel="noopener">LINKEDIN</a>
+              <a href="https://github.com" target="_blank" rel="noopener">GITHUB</a>
+              <a href="https://leetcode.com" target="_blank" rel="noopener">LEETCODE (1609)</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
