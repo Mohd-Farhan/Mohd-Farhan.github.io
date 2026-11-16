@@ -6,19 +6,20 @@
     <title>Mohd. Farhan Siddiqui | Software Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+    <!-- Upgraded to Plus Jakarta Sans for a highly professional, premium tech look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/style.css" />
   </head>
   <body>
     <!-- Grain Noise Overlay -->
     <div class="noise-overlay"></div>
 
-    <!-- 3D Canvas (Distributed Systems Node Graph) -->
+    <!-- 3D Canvas -->
     <canvas id="webgl-canvas" aria-hidden="true"></canvas>
 
-    <!-- Sleek Minimal Header -->
+    <!-- Header -->
     <header class="site-header">
-      <div class="logo">MFS.</div>
+      <div class="logo">Mohd. Farhan Siddiqui</div>      
       <nav class="nav-links">
         <a href="#about" data-scroll="about">About</a>
         <a href="#skills" data-scroll="skills">Skills</a>
@@ -36,7 +37,7 @@
       <!-- HERO SECTION -->
       <section class="hero-section" id="about">
         <div class="hero-layout">
-          <div class="hero-text" data-speed="0.8">
+          <div class="hero-text">
             <p class="eyebrow">SOFTWARE ENGINEER</p>
             <h1 class="massive-text">
               BACK-END<br/>
@@ -47,10 +48,9 @@
             </p>
           </div>
           
-          <!-- AVATAR PLACEHOLDER -->
-          <div class="hero-visual" data-speed="1.2">
+          <!-- AVATAR -->
+          <div class="hero-visual">
             <div class="avatar-mask">
-              <!-- Replace 'avatar.jpg' with your photo in the public/ folder -->
               <img src="/avatar.jpg" alt="Mohd. Farhan Siddiqui" class="avatar-img" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop';" />
             </div>
             <div class="avatar-badge">
@@ -100,7 +100,6 @@
         <h2 class="section-heading">PROFESSIONAL<br/>EXPERIENCE</h2>
         
         <div class="timeline-container">
-          <!-- Role 1 -->
           <div class="timeline-item">
             <div class="timeline-meta">
               <span class="date">Feb 2025 - Present</span>
@@ -118,7 +117,6 @@
             </div>
           </div>
 
-          <!-- Role 2 -->
           <div class="timeline-item">
             <div class="timeline-meta">
               <span class="date">Jan 2024 - Jul 2024</span>
@@ -143,29 +141,25 @@
         <h2 class="section-heading outline-text">FEATURED<br/>WORK</h2>
         
         <div class="project-grid">
-          <!-- TixManager -->
           <div class="project-card">
             <div class="project-info">
               <span class="project-num">01</span>
               <h3>TixManager</h3>
               <p class="project-desc">Engineered a full-stack ticketing platform. The backend manages ticket lifecycles using GoF State and Strategy design patterns with JWT stateless authentication. Built asynchronous audit logging and SLA escalation daemons using Spring Observer. The UI is a responsive Single Page Application built with Angular and RxJS featuring dynamic role-based views.</p>
               <div class="project-links">
-                <!-- Add your actual links inside the href="" attributes below -->
-                <a href="#" target="_blank" rel="noopener" class="hover-link">Live Demo ↗</a>
-                <a href="#" target="_blank" rel="noopener" class="hover-link">GitHub ↗</a>
+                <a href="#" target="_blank" rel="noopener" class="hover-link" data-link="tixLive">Live Demo ↗</a>
+                <a href="#" target="_blank" rel="noopener" class="hover-link" data-link="tixGithub">GitHub ↗</a>
               </div>
             </div>
           </div>
 
-          <!-- WeListen -->
           <div class="project-card">
             <div class="project-info">
               <span class="project-num">02</span>
               <h3>WeListen</h3>
               <p class="project-desc">Created a robust Android communication application with an intuitive XML-based UI. Integrated Firebase for secure, real-time messaging and multi-device data synchronization. Implemented high-quality internet VoIP calling utilizing the Zegocloud API.</p>
               <div class="project-links">
-                <!-- Add your actual link inside the href="" attribute below -->
-                <a href="#" target="_blank" rel="noopener" class="hover-link">GitHub ↗</a>
+                <a href="#" target="_blank" rel="noopener" class="hover-link" data-link="weListenGithub">GitHub ↗</a>
               </div>
             </div>
           </div>
@@ -176,12 +170,12 @@
       <section class="contact-section" id="contact">
         <h2 class="massive-text text-center">LET'S<br/>CONNECT</h2>
         <div class="contact-wrapper">
-          <a href="mailto:sample.email@domain.com" class="big-email">sample.email@domain.com</a>
+         <a href="#" class="big-email" data-link="email"></a>
           <div class="social-links">
-            <a href="#" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="#" target="_blank" rel="noopener">GitHub</a>
-            <a href="#" target="_blank" rel="noopener">LeetCode (1609)</a>
-            <a href="/resume.pdf" target="_blank">Download Resume</a>
+            <a href="#" target="_blank" rel="noopener" data-link="linkedin">LinkedIn</a>
+            <a href="#" target="_blank" rel="noopener" data-link="github">GitHub</a>
+            <a href="#" target="_blank" rel="noopener" data-link="leetcode">LeetCode (1609)</a>
+            <a href="#" target="_blank" data-link="resume">Download Resume</a>
           </div>
         </div>
       </section>

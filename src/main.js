@@ -6,6 +6,35 @@ import Lenis from 'lenis';
 gsap.registerPlugin(ScrollTrigger);
 
 // ==========================================================
+// CENTRAL LINK CONFIGURATION
+// ==========================================================
+const SITE_CONFIG = {
+  // Contact & Socials
+  email: "mailto:mohd.farhan.eng@gmail.com",
+  linkedin: "https://linkedin.com/in/mohd-farhan-siddiqui-54433a235",
+  github: "https://github.com/Mohd-Farhan",
+  leetcode: "https://leetcode.com/mohammadfarhan3255/",
+  resume: "/src/resume.pdf", // Make sure this matches the filename in your public/ folder
+  
+  // Project Links
+  tixLive: "https://tix-manager.onrender.com/",
+  tixGithub: "https://github.com/Mohd-Farhan/tix-manager",
+  weListenGithub: "https://github.com/Mohd-Farhan/WeListen"
+};
+
+// Automatically inject links into the HTML
+Object.keys(SITE_CONFIG).forEach(key => {
+  const elements = document.querySelectorAll(`[data-link="${key}"]`);
+  elements.forEach(el => {
+    el.href = SITE_CONFIG[key];
+    // If it's the email link, auto-fill the visible text as well
+    if (key === 'email') {
+      el.textContent = SITE_CONFIG[key].replace('mailto:', '');
+    }
+  });
+});
+
+// ==========================================================
 // 1. SMOOTH SCROLL (LENIS)
 // ==========================================================
 const lenis = new Lenis({
@@ -22,7 +51,6 @@ gsap.ticker.lagSmoothing(0);
 const canvas = document.querySelector('#webgl-canvas');
 const scene = new THREE.Scene();
 
-// Camera setup
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
 camera.position.set(0, 0, 10);
 
@@ -30,30 +58,28 @@ const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true 
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-// System Group
 const systemNetwork = new THREE.Group();
 scene.add(systemNetwork);
 
-// Core API / Database (Central Node)
+// Core API / Database
 const coreGeo = new THREE.BoxGeometry(1.2, 1.2, 1.2);
 const coreMat = new THREE.MeshPhysicalMaterial({
-  color: 0x111111,
+  color: 0x0ea5e9, // Tech Blue to match CSS accent
   metalness: 0.9,
   roughness: 0.2,
   wireframe: true,
-  emissive: 0x222222,
+  emissive: 0x0284c7,
 });
 const coreNode = new THREE.Mesh(coreGeo, coreMat);
 systemNetwork.add(coreNode);
 
-// Microservices (Satellite Nodes) & Connections
+// Microservices Nodes
 const nodeCount = 8;
 const satellites = [];
 const lines = [];
 const lineMat = new THREE.LineBasicMaterial({ color: 0x333333, transparent: true, opacity: 0.4 });
 
 for (let i = 0; i < nodeCount; i++) {
-  // Create Satellite Cubes
   const satGeo = new THREE.BoxGeometry(0.4, 0.4, 0.4);
   const satMat = new THREE.MeshStandardMaterial({
     color: i % 2 === 0 ? 0xffffff : 0xaaaaaa,
@@ -61,7 +87,6 @@ for (let i = 0; i < nodeCount; i++) {
   });
   const satNode = new THREE.Mesh(satGeo, satMat);
   
-  // Distribute spherically
   const phi = Math.acos(-1 + (2 * i) / nodeCount);
   const theta = Math.sqrt(nodeCount * Math.PI) * phi;
   const radius = 3.5;
@@ -72,7 +97,6 @@ for (let i = 0; i < nodeCount; i++) {
     radius * Math.cos(phi)
   );
   
-  // Store initial position for floating math
   satNode.userData = { 
     basePos: satNode.position.clone(),
     speed: Math.random() * 0.5 + 0.5 
@@ -81,7 +105,6 @@ for (let i = 0; i < nodeCount; i++) {
   systemNetwork.add(satNode);
   satellites.push(satNode);
 
-  // Draw connecting line to Core
   const points = [new THREE.Vector3(0,0,0), satNode.position];
   const lineGeo = new THREE.BufferGeometry().setFromPoints(points);
   const line = new THREE.Line(lineGeo, lineMat);
@@ -89,7 +112,6 @@ for (let i = 0; i < nodeCount; i++) {
   lines.push({ mesh: line, target: satNode });
 }
 
-// Lighting
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(ambientLight);
 const spotLight = new THREE.SpotLight(0xffffff, 15);
@@ -97,24 +119,23 @@ spotLight.position.set(5, 5, 5);
 scene.add(spotLight);
 
 // ==========================================================
-// 3. GSAP SCROLL ANIMATIONS (AWWWARDS VIBE)
+// 3. GSAP SCROLL ANIMATIONS
 // ==========================================================
 
-// Parallax text and images
-gsap.utils.toArray('[data-speed]').forEach(el => {
-  gsap.to(el, {
-    y: (i, el) => (1 - parseFloat(el.getAttribute('data-speed'))) * ScrollTrigger.maxScroll(window),
-    ease: "none",
-    scrollTrigger: {
-      trigger: el,
-      start: "top bottom",
-      end: "bottom top",
-      scrub: 0
-    }
-  });
+// Smoothly fade out hero section on scroll to prevent merging issues
+gsap.to('.hero-layout', {
+  opacity: 0,
+  y: 50,
+  ease: "none",
+  scrollTrigger: {
+    trigger: '.hero-section',
+    start: "top top",
+    end: "bottom center",
+    scrub: true
+  }
 });
 
-// Marquee continuous loop
+// Marquee loop
 gsap.to('.marquee-track', {
   xPercent: -50,
   ease: "none",
@@ -122,7 +143,7 @@ gsap.to('.marquee-track', {
   repeat: -1
 });
 
-// 3D Network Scroll Trigger (Move the network through the screen as you scroll)
+// Move 3D Network down slightly as you scroll
 const tl = gsap.timeline({
   scrollTrigger: {
     trigger: '#smooth-content',
@@ -135,14 +156,14 @@ const tl = gsap.timeline({
 tl.to(systemNetwork.rotation, { x: Math.PI * 2, y: Math.PI * 2, ease: "none" })
   .to(systemNetwork.position, { x: 3, y: -2, z: -2, ease: "none" }, 0);
 
-// Reveal elements on scroll
+// Reveal elements safely as you scroll down
 gsap.utils.toArray('.timeline-item, .project-card, .skill-category').forEach((elem) => {
   gsap.fromTo(elem, 
-    { opacity: 0, y: 100 },
+    { opacity: 0, y: 50 },
     {
       opacity: 1, y: 0,
-      duration: 1,
-      ease: "power3.out",
+      duration: 0.8,
+      ease: "power2.out",
       scrollTrigger: {
         trigger: elem,
         start: "top 85%",
@@ -160,13 +181,11 @@ function animate() {
   requestAnimationFrame(animate);
   const elapsedTime = clock.getElapsedTime();
 
-  // Subtle breathing/floating animation for nodes
   satellites.forEach((sat, index) => {
     const { basePos, speed } = sat.userData;
     sat.position.y = basePos.y + Math.sin(elapsedTime * speed) * 0.3;
     sat.position.x = basePos.x + Math.cos(elapsedTime * speed) * 0.3;
     
-    // Update lines to follow nodes
     const positions = lines[index].mesh.geometry.attributes.position.array;
     positions[3] = sat.position.x;
     positions[4] = sat.position.y;
@@ -174,7 +193,6 @@ function animate() {
     lines[index].mesh.geometry.attributes.position.needsUpdate = true;
   });
 
-  // Slow constant rotation
   systemNetwork.rotation.y += 0.001;
   coreNode.rotation.x += 0.005;
   coreNode.rotation.y += 0.005;
